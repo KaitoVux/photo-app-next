@@ -1,16 +1,16 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade } from 'swiper';
+import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
+import imageService from '@services/image.service';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { useEffect, useState } from 'react';
-import imageService from '@services/image.service';
-import Image from 'next/image';
 
 export const Slider: React.FC = () => {
     const [images, setImages] = useState<any>([]);
@@ -35,7 +35,7 @@ export const Slider: React.FC = () => {
     ));
 
     return (
-        <section className="pb-4 w-screen">
+        <section className="pb-8 w-screen">
             <Swiper
                 // install Swiper modules
                 modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
@@ -48,7 +48,7 @@ export const Slider: React.FC = () => {
                 }}
                 pagination={{ clickable: true }}
                 onSwiper={(swiper) => {}}
-                onSlideChange={() => console.log('slide change')}
+                onSlideChange={() => {}}
             >
                 {images &&
                     images?.map((image: any) => (
