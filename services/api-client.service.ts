@@ -1,7 +1,10 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const apiClient: AxiosInstance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL,
+    baseURL: publicRuntimeConfig.API_URL ?? process.env.NEXT_PUBLIC_API_URL,
     headers: { 'Content-Type': 'application/json' },
 } as AxiosRequestConfig);
 
